@@ -3,7 +3,14 @@ name: Docker Build Check
 on:
   push:
     branches:
-      - main
+      - main  # Trigger on push to the main branch
+  pull_request:
+    branches:
+      - main  # Trigger on PR targeting the main branch
+    types: 
+      - opened      # Trigger when a PR is opened
+      - reopened    # Trigger when a PR is reopened
+      - synchronize # Trigger when a PR is updated with new commits
 
 jobs:
   docker-build:
